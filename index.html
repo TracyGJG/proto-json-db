@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Harness</title>
+  </head>
+  <body>
+    <h1>Proto-JSON-DB Test Harness</h1>
+
+    <script type="module">
+      import stateWidthDefaultId from './states-defaultId.json' with { type:  'json'};
+      import stateWidthAlternateId from './states-stateId.json' with { type:  'json'};
+
+      import ProtoJsonDb from './index.js';
+
+      ProtoJsonDb(
+        {
+          default: stateWidthDefaultId,
+          alternative: stateWidthAlternateId,
+        },
+        {
+          alternative: 'stateId'
+        }
+      );
+    </script>
+  </body>
+</html>

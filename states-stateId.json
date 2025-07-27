@@ -1,0 +1,26 @@
+[
+  {
+    "stateId": "initial",
+    "action": "initialAction",
+    "triggers": {
+      "next": "tic"
+    }
+  },
+  {
+    "stateId": "tic",
+    "action": "ticAction",
+    "triggers": {
+      "next": "tac",
+      "again": "tic"
+    }
+  },
+  {
+    "stateId": "tac",
+    "action": "tacAction",
+    "triggers": {
+      "next": "toe",
+      "back": "tic"
+    }
+  },
+  { "stateId": "toe", "action": "tocAction", "triggers": {} }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "initial",
+    "action": "initialAction",
+    "triggers": {
+      "next": "tic"
+    }
+  },
+  {
+    "id": "tic",
+    "action": "ticAction",
+    "triggers": {
+      "next": "tac",
+      "again": "tic"
+    }
+  },
+  {
+    "id": "tac",
+    "action": "tacAction",
+    "triggers": {
+      "next": "toe",
+      "back": "tic"
+    }
+  },
+  { "id": "toe", "action": "tocAction", "triggers": {} }
+]
