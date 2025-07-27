@@ -4,8 +4,6 @@ export default function (datasets, ids) {
     {}
   );
 
-  // console.table(_ids);
-
   const collections = Object.entries(datasets).reduce(
     (cols, [col, data]) => ({
       ...cols,
@@ -13,10 +11,6 @@ export default function (datasets, ids) {
     }),
     {}
   );
-
-  // console.table(Object.keys(collections));
-  // console.table([...collections.default.keys()]);
-  // console.table([...collections.alternative.keys()]);
 
   return {
     create(coll) {
@@ -26,20 +20,20 @@ export default function (datasets, ids) {
         collections[coll].set(id_, { [_ids[coll]]: id_, ...data });
       };
     },
-    update(coll) {
-      return (id, data) => collections[coll].set(id, data);
-    },
-    remove(coll) {
-      return (id) => collections[coll].delete(id);
-    },
-    read(coll) {
-      return (id) => collections[coll].get(id);
-    },
     list(coll) {
       return (predicate = (datum) => datum) =>
         [...collections[coll].entries()]
           .map(([_, datum]) => datum)
           .filter(predicate);
+    },
+    read(coll) {
+      return (id) => collections[coll].get(id);
+    },
+    remove(coll) {
+      return (id) => collections[coll].delete(id);
+    },
+    update(coll) {
+      return (id, data) => collections[coll].set(id, data);
     },
   };
 }
