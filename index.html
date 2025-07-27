@@ -14,7 +14,13 @@
 
       import ProtoJsonDb from './index.js';
 
-      ProtoJsonDb(
+      const {
+        create,
+        update,
+        remove,
+        read,
+        list,
+      } = ProtoJsonDb(
         {
           default: stateWidthDefaultId,
           alternative: stateWidthAlternateId,
@@ -23,6 +29,22 @@
           alternative: 'stateId'
         }
       );
+
+      console.table(list('default')());
+      console.table(list('alternative')(_ => _.stateId.at(-1) === 'c'));
+      console.table(read('default')('toe'));
+
+      const toe = read('default')('toe');
+      toe.action = 'ACTION TOE';
+
+      update('default')('toe', toe);
+      console.table(list('default')());
+
+      remove('default')('tac');
+      console.table(list('default')());
+
+      create('default')({action: 'ACTION TAC', triggers: {}})
+      console.table(list('default')());
     </script>
   </body>
 </html>
