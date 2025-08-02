@@ -22,5 +22,5 @@
       "back": "tic"
     }
   },
-  { "id": "toe", "action": "tocAction", "triggers": {} }
+  { "id": "toe", "action": "toeAction", "triggers": {} }
 ]
